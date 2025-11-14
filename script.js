@@ -1,3 +1,4 @@
+//Criação do Array com 4 personagens de base
 let personagens = [
     {   nome: 'Aragorn', 
         classe: 'Herói', 
@@ -28,6 +29,7 @@ let personagens = [
         historicoDeAcoes: []}
 ]
 
+//Função que contém as ações que podem ser executadas pelo personagem, utilizando um switch para escolher entre atacar, defender e usar habilidades, além de outro switch pegando as habilidades que o personage possui, pedindo que o usuário escolha qual será utilzada.
 function acaoPersonagem (personagem, acao){
     const personagemEncontrado = personagens.find(perso => perso.nome.toLowerCase() === personagem.toLowerCase())
     switch(acao.toLowerCase()){
@@ -65,9 +67,10 @@ function acaoPersonagem (personagem, acao){
             break
     }
 }
-acaoPersonagem('Aragorn', 'Habilidade')
-console.log(personagens[0].historicoDeAcoes)
+acaoPersonagem('Aragorn', 'Habilidade') //Personagem para teste
+console.log(personagens[0].historicoDeAcoes)//Teste para verificar se está adicionando a ação no array.
 
+//Função para criar personagem, questionando as informações ao usuário através de prompts
 function novoPersonagem (){
     personagemNovo ={
         nome: prompt('Qual o nome do novo personagem?'),
@@ -79,8 +82,9 @@ function novoPersonagem (){
     }
     personagens.push(personagemNovo)
 }
-novoPersonagem()
+novoPersonagem()//Acionando a função para o usuário selecionar as informações
 
+//Função para busca do personagem no array, checando se o personagem é encontrado e então retornando as informações
 function buscarPersonagem (personagemBuscado){
     const personagemEncontrado = personagens.find(perso => perso.nome.toLowerCase() === personagemBuscado.toLowerCase())
     if(personagemEncontrado){
@@ -91,6 +95,7 @@ function buscarPersonagem (personagemBuscado){
 }
 buscarPersonagem('Gimli')
 
+//Função que busca o personagem para verificar se é possível excluir
 function excluirPersonagem (personagem){
     const personagemEncontrado = personagens.find(perso => perso.nome.toLowerCase() === personagem.toLowerCase())
     if(personagemEncontrado){
@@ -102,6 +107,7 @@ function excluirPersonagem (personagem){
 }
 excluirPersonagem('Gandalf')
 
+//Função apenas para listar os personagens do array
 function listarPersonagens () {
     for(let i = 0; i<personagens.length; i++){
         console.log(personagens[i])
